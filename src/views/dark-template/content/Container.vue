@@ -4,12 +4,8 @@
     light
   >
     <v-card-text>
-      <content-section
-        title="Who am I?"
-      >
-        I'm a developer born in Iran and founder of <a href="http://delix.ir/?utm_source=portiflo&utm_medium=link&utm_content=intro&utm_campaign=delix">Delix.ir</a>, <a href="https://bytegate.ir/?utm_source=portiflo&utm_medium=link&utm_content=intro&utm_campaign=bytegate">Bytegate.ir</a> and <a href="http://bobet.ir/?utm_source=portiflo&utm_medium=link&utm_content=intro&utm_campaign=bobet">Bobet.ir</a> and co-founder of <a href="https://smo.li/?utm_source=portiflo&utm_medium=link&utm_content=intro&utm_campaign=smoli">Smo.li</a>.<br>
-        I'm interested and skilled in different topics of Information Technology including programming, web development, and computer and network security.
-      </content-section>
+      <!-- name component  -->
+      <NameComponent />
       <content-section
         v-if="prouds"
         title="What am I proud of?"
@@ -68,9 +64,7 @@
           (% are relative not absolute)
         </template>
         <v-layout wrap>
-          <template
-            v-for="(skill, i) in skills"
-          >
+          <template v-for="(skill, i) in skills">
             <v-flex
               v-if="skill.divider"
               :key="i"
@@ -84,13 +78,9 @@
               md6
               xs12
             >
-              <div
-                class="mr-2 ml-2"
-              >
+              <div class="mr-2 ml-2">
                 <div class="align-center">
-                  <v-icon
-                    small
-                  >
+                  <v-icon small>
                     {{ skill.icon }}
                   </v-icon>
                   {{ skill.title }}
@@ -112,9 +102,11 @@
 
 <script>
 import ContentSection from '@/views/dark-template/content/Section'
+import NameComponentVue from '../../../components/NameComponent.vue'
+
 export default {
   name      : 'MainContent',
-  components: { ContentSection },
+  components: { ContentSection, NameComponentVue },
   data      : () => ({
     prouds: [
       {
@@ -142,9 +134,10 @@ export default {
       {
         from       : '2015',
         to         : '2019 (not finished yet)',
-        title      : 'Bachelor\'s degree, Information Technology',
+        title      : "Bachelor's degree, Information Technology",
         location   : 'Seraj University',
-        description: 'Became a member of University Academic Association of Computer Science',
+        description:
+          'Became a member of University Academic Association of Computer Science',
       },
     ],
     skills: [
@@ -227,6 +220,17 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  background-color: #f4f4f6;
+  color: #2f2f31;
+}
+.name-section{
+  font-size: 2rem;
+}
+.name{
+  margin-top: -2rem;
+}
+
 .title {
   border-bottom: 2px #bfbfbf solid;
   line-height: 1.5 !important;

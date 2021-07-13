@@ -9,7 +9,6 @@
           fluid
           fill-height
         >
-          <github-ribbon />
           <v-layout
             align-center
             justify-center
@@ -19,23 +18,19 @@
               sm12
             >
               <v-layout wrap>
-                <v-flex
-                  md4
-                >
-                  <sidebar-container class="fill-height" />
-                </v-flex>
-                <v-flex
-                  md8
-                >
+                <v-flex md8>
                   <content-container class="fill-height" />
                 </v-flex>
-              </v-layout>
-              <v-layout>
-                <v-flex md12>
-                  <timeline-primary />
-                  <timeline-endless />
+                <v-flex md4>
+                  <sidebar-container class="fill-height" />
                 </v-flex>
               </v-layout>
+              <!-- <v-layout> -->
+              <!-- <v-flex md12> -->
+              <!-- <timeline-primary /> -->
+              <!-- <timeline-endless /> -->
+              <!-- </v-flex> -->
+              <!-- </v-layout> -->
             </v-flex>
           </v-layout>
         </v-container>
@@ -49,13 +44,11 @@ import SidebarContainer from '@/views/dark-template/sidebar/Container'
 import ContentContainer from '@/views/dark-template/content/Container'
 import TimelinePrimary from '@/views/dark-template/timeline/Primary'
 import TimelineEndless from '@/views/dark-template/timeline/Endless'
-import LeaderLine from 'leader-line'
-import GithubRibbon from '@/views/dark-template/GithubRibbon'
+// import LeaderLine from 'leader-line'
 
 export default {
   name      : 'DarkTemplateContainer',
   components: {
-    GithubRibbon,
     TimelineEndless,
     TimelinePrimary,
     ContentContainer,
@@ -63,15 +56,15 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line no-unused-vars
-    const line = new LeaderLine(
-      document.getElementById('to-timeline'),
-      document.getElementById('timeline'),
-      {
-        size      : 2,
-        color     : this.$vuetify.theme.primary,
-        startLabel: LeaderLine.captionLabel('To the Journey ...'),
-      }
-    )
+    // const line = new LeaderLine(
+    //   document.getElementById('to-timeline'),
+    //   document.getElementById('timeline'),
+    //   {
+    //     size      : 2,
+    //     color     : this.$vuetify.theme.primary,
+    //     startLabel: LeaderLine.captionLabel('To the Journey ...'),
+    //   }
+    // )
   },
 }
 </script>
@@ -79,9 +72,9 @@ export default {
 <style scoped>
 #dark-template {
   height: 100%;
-  background: #66668d;
-  background: -webkit-linear-gradient(to left, #66668d, #4389a2);
-  background: linear-gradient(to left, #66668d, #4389a2);
+  background: #464646;
+  background: -webkit-linear-gradient(135deg, #353537, #CDCDCD);
+  background: linear-gradient(135deg, #353537, #CDCDCD);
   background-size: cover;
 }
 </style>

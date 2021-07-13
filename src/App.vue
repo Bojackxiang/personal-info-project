@@ -1,13 +1,11 @@
 <template>
   <v-app>
-    <v-content>
-      <dark-template-container />
-    </v-content>
+    <dark-template-container />
   </v-app>
 </template>
 
 <script>
-import DarkTemplateContainer from '@/views/dark-template/Container'
+import DarkTemplateContainer from './views/dark-template/Container.vue'
 
 export default {
   name      : 'App',
@@ -17,3 +15,12 @@ export default {
   },
 }
 </script>
+
+<style>
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: #444347;
+}
+</style>
