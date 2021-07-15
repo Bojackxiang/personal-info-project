@@ -1,37 +1,27 @@
 <template>
   <v-app id="dark-template">
-    <v-fade-transition
-      mode="out-in"
-      type="animation"
-    >
+    <v-fade-transition mode="out-in" type="animation">
       <v-content>
-        <v-container
-          fluid
-          fill-height
-        >
-          <v-layout
-            align-center
-            justify-center
-          >
-            <v-flex
-              md10
-              sm12
-            >
-              <v-layout wrap>
-                <v-flex md8>
-                  <content-container class="fill-height" />
-                </v-flex>
-                <v-flex md4>
-                  <sidebar-container class="fill-height" />
-                </v-flex>
-              </v-layout>
-              <!-- <v-layout> -->
-              <!-- <v-flex md12> -->
-              <!-- <timeline-primary /> -->
-              <!-- <timeline-endless /> -->
-              <!-- </v-flex> -->
-              <!-- </v-layout> -->
-            </v-flex>
+        <v-container fluid fill-height>
+          <v-layout align-center justify-center>
+            <div class="page-container">
+              <v-flex md10 sm12>
+                <v-layout wrap>
+                  <v-flex md8>
+                    <content-container class="fill-height" />
+                  </v-flex>
+                  <v-flex md4>
+                    <sidebar-container class="fill-height" />
+                  </v-flex>
+                </v-layout>
+                <!-- <v-layout> -->
+                <!-- <v-flex md12> -->
+                <!-- <timeline-primary /> -->
+                <!-- <timeline-endless /> -->
+                <!-- </v-flex> -->
+                <!-- </v-layout> -->
+              </v-flex>
+            </div>
           </v-layout>
         </v-container>
       </v-content>
@@ -40,21 +30,21 @@
 </template>
 
 <script>
-import SidebarContainer from '@/views/dark-template/sidebar/Container'
-import ContentContainer from '@/views/dark-template/content/Container'
-import TimelinePrimary from '@/views/dark-template/timeline/Primary'
-import TimelineEndless from '@/views/dark-template/timeline/Endless'
+import SidebarContainer from "@/views/dark-template/sidebar/Container";
+import ContentContainer from "@/views/dark-template/content/Container";
+import TimelinePrimary from "@/views/dark-template/timeline/Primary";
+import TimelineEndless from "@/views/dark-template/timeline/Endless";
 // import LeaderLine from 'leader-line'
 
 export default {
-  name      : 'DarkTemplateContainer',
+  name: "DarkTemplateContainer",
   components: {
     TimelineEndless,
     TimelinePrimary,
     ContentContainer,
     SidebarContainer,
   },
-  mounted () {
+  mounted() {
     // eslint-disable-next-line no-unused-vars
     // const line = new LeaderLine(
     //   document.getElementById('to-timeline'),
@@ -66,15 +56,20 @@ export default {
     //   }
     // )
   },
-}
+};
 </script>
 
 <style scoped>
 #dark-template {
   height: 100%;
-  background: #464646;
-  background: -webkit-linear-gradient(135deg, #353537, #CDCDCD);
-  background: linear-gradient(135deg, #353537, #CDCDCD);
+;
+  background: url("/img/background.jpeg");
+  background-repeat: no-repeat;
+  background-position: top;
   background-size: cover;
+  
+}
+.page-container{
+  max-width: 1200px;;
 }
 </style>
