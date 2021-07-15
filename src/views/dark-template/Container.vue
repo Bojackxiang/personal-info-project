@@ -5,11 +5,13 @@
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
             <div class="page-container">
-              <v-flex md10 sm12>
+              <v-flex sm12>
                 <v-layout wrap>
+                  <!-- right side col  -->
                   <v-flex md8>
                     <content-container class="fill-height" />
                   </v-flex>
+                  <!-- left side col  -->
                   <v-flex md4>
                     <sidebar-container class="fill-height" />
                   </v-flex>
@@ -70,6 +72,6 @@ export default {
   
 }
 .page-container{
-  max-width: 1200px;;
+  max-width: 900px;;
 }
 </style>

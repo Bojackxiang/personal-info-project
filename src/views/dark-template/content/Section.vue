@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    v-if="true"
-    flat
-  >
+  <v-card v-if="true" flat>
     <v-card-title>
       <h3 class="title font-weight-light mb-1">
         {{ title }}
@@ -10,14 +7,11 @@
       <v-spacer />
       <slot name="actions" />
     </v-card-title>
-    <v-card-text>
+    <v-card-text >
       <slot />
     </v-card-text>
   </v-card>
-  <div
-    v-else
-    class="mb-5"
-  >
+  <div v-else class="mb-5">
     <div class="title mb-3">
       <h2>
         {{ title }}
@@ -32,11 +26,23 @@
 </template>
 
 <script>
+import Spacer from "../../../components/Utils/Spacer.vue";
 export default {
-  name      : 'ContentSection',
-  components: { },
-  props     : { title: { type: String, default: '' } },
-}
+  name: "ContentSection",
+  components: {Spacer},
+  props: {
+    title: { type: String, default: "" },
+    spaceHeight: { type: String, default: "2rem" },
+  },
+  created(){
+    console.log(this.spaceHeight)
+  },
+  data(){
+    return {
+      space: this.spaceHeight
+    }
+  }
+};
 </script>
 
 <style scoped>
