@@ -1,7 +1,7 @@
 <template>
-  <content-section v-if="educations" title="Education" :space="'2rem'">
+  <content-section v-if="educations" title="Education">
     <v-layout v-for="(education, i) in educations" :key="i">
-      <v-flex md4>
+      <v-flex md3>
         <span class="year-text"
           >{{ education.from }} - {{ education.to }}
         </span>
@@ -10,14 +10,17 @@
         <strong v-if="education.title">
           <span class="title-text">{{ education.title }}</span>
         </strong>
-        <div v-if="education.location">
-          <span class="title-sub-text">{{ education.location }} </span>
-        </div>
-        <div v-if="education.description">
-          {{ education.description }}
+        <div v-if="education.subtitles.length > 0">
+          <span
+            class="title-sub-text"
+            v-for="subtitle in education.subtitles"
+            :key="subtitle"
+          >
+            {{ subtitle }}
+          </span>
         </div>
       </v-flex>
-      <Spacer :height="'4rem'" />
+      <Spacer :height="'5rem'"/>
     </v-layout>
   </content-section>
 </template>
@@ -31,22 +34,19 @@ export default {
     return {
       educations: [
         {
-          from: "2012",
-          to: "2016",
-          title: "Bachelor's Applied Mathmatics",
-          location: "University of Arizona",
-        },
-        {
-          from: "2012",
-          to: "2016",
-          title: "Bachelor's Computer Science",
-          location: "University of Arizona",
-        },
-        {
           from: "2017",
           to: "2019",
-          title: "Master's Information Technology",
-          location: "University of New South Wales",
+          title: "University of New South Wales (Australia)",
+          subtitles: [`Master's Information Technology`],
+        },
+        {
+          from: "2012",
+          to: "2016",
+          title: "University of Arizona (United States)",
+          subtitles: [
+            `Bachelor's Applied Mathmatics`,
+            `Bachelor's Computer Science`,
+          ],
         },
       ],
     };
@@ -63,14 +63,16 @@ export default {
 }
 
 .year-text {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .title-text {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .title-sub-text {
+  display: block;
   font-size: 1rem;
+  margin: 0.5rem 2rem;
 }
 </style>
