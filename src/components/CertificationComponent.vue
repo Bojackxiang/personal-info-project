@@ -1,27 +1,35 @@
 <template>
-  <content-section v-if="certifications" title="Certification" class="wrapper">
-    <v-layout v-for="(certification, index) in certifications" :key="index">
-      <v-flex md3 xs2 sm3>
+  <div v-if="certifications" class="wrapper">
+    <el-row>
+      <el-col :span="24">
+        <span class="title"> Certification </span>
+      </el-col>
+    </el-row>
+    <el-row
+      class="content"
+      v-for="(certification, index) in certifications"
+      :key="index"
+      type="flex"
+    >
+      <el-col :span="6" :xs="4">
         <span class="certification-name-text">
           {{ certification.platformName }}
         </span>
-      </v-flex>
-      <div>
+      </el-col>
+      <el-col :span="18">
         <span class="certification-title-text">
           {{ certification.title }}
         </span>
-      </div>
-      <Spacer :height="'5rem'" />
-    </v-layout>
-  </content-section>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
-import ContentSection from "@/views/dark-template/content/Section";
 import Spacer from "./Utils/Spacer.vue";
 export default {
   name: "CertificationComponent",
-  components: { ContentSection, Spacer },
+  components: { Spacer },
   data() {
     return {
       certifications: [
@@ -36,21 +44,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  border-bottom: 2px #bfbfbf solid;
+.wrapper {
+  padding: 1rem 0.8rem;
+  background-color: #fff;
+  .title {
+    display: inline-block;
+    padding: 0.5rem 0rem;
+    border-bottom: 2px #bfbfbf solid;
+  }
+  .content {
+    padding: 1rem 0.8rem;
+    .certification-name-text {
+      font-size: 1.2rem;
+    }
+    .certification-title-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
 }
-.progress {
-  margin-top: 0.1rem;
-}
-
-.certification-name-text {
-  font-size: 1.2rem;
-}
-
-.certification-title-text {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-
 </style>
