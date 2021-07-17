@@ -6,11 +6,11 @@
           {{ certification.platformName }}
         </span>
       </v-flex>
-      <v-flex md8 class="justify-start">
+      <div>
         <span class="certification-title-text">
           {{ certification.title }}
         </span>
-      </v-flex>
+      </div>
       <Spacer :height="'5rem'" />
     </v-layout>
   </content-section>
@@ -36,15 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  .v-card__title {
-    color: red !important;
-    .title {
-      
-    }
-  }
-}
-
 .title {
   border-bottom: 2px #bfbfbf solid;
 }
@@ -60,4 +51,6 @@ export default {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+
 </style>
