@@ -4,7 +4,7 @@
       <!-- name component  -->
       <NameComponent />
       <EducationComponentVue/>
-
+      <certification-component/>
     
       <content-section v-if="skills" id="to-timeline" title="Skills">
         <template slot="actions"> (% are relative not absolute) </template>
@@ -39,10 +39,11 @@ import ContentSection from "@/views/dark-template/content/Section";
 import NameComponentVue from "../../../components/NameComponent.vue";
 import Spacer from "../../../components/Utils/Spacer.vue";
 import EducationComponentVue from '../../../components/EducationComponent.vue';
+import CertificationComponent from '../../../components/CertificationComponent.vue';
 
 export default {
   name: "MainContent",
-  components: { ContentSection, NameComponentVue, Spacer, EducationComponentVue },
+  components: { ContentSection, NameComponentVue, Spacer, EducationComponentVue, CertificationComponent },
   data: () => ({
     prouds: [
       {
