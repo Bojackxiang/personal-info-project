@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  padding: 1rem 0.8rem;
+  padding: 0rem 1.3rem;
   background-color: #fff;
   .title {
     display: inline-block;

@@ -1,28 +1,36 @@
 <template>
-  <content-section v-if="educations" title="Education">
-    <v-layout v-for="(education, i) in educations" :key="i">
-      <v-flex md3 >
-        <span class="year-text"
-          >{{ education.from }} - {{ education.to }}
+  <div v-if="educations" title="" class="wrapper">
+    <el-row>
+      <el-col :span="24">
+        <span class="title"> Education </span>
+      </el-col>
+    </el-row>
+
+    <el-row
+      class="content"
+      v-for="(education, index) in educations"
+      :key="index"
+      type="flex"
+    >
+      <el-col :span="6" :xs="4">
+        <span class="education-year">
+          {{ education.from }} - {{ education.to }}
         </span>
-      </v-flex>
-      <v-flex sm9 xs12 class="test">
-          <strong v-if="education.title">
-            <span class="title-text">{{ education.title }}</span>
-          </strong>
-          <div v-if="education.subtitles.length > 0">
-            <span
-              class="title-sub-text"
-              v-for="subtitle in education.subtitles"
-              :key="subtitle"
-            >
-              {{ subtitle }}
-            </span>
-          </div>
-      </v-flex>
-      <Spacer :height="'5rem'" />
-    </v-layout>
-  </content-section>
+      </el-col>
+
+      <el-col :span="18">
+        <span class="education-title"> {{education.title}} </span>
+        <span
+          class="education-subtitle"
+          v-for="(subtitle, index) in education.subtitles"
+          :key="`${subtitle}-${index}`"
+        >
+        {{ subtitle }} 
+        </span>
+      </el-col>
+    </el-row>
+
+  </div>
 </template>
 
 <script>
@@ -55,24 +63,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  border-bottom: 2px #bfbfbf solid;
-}
-.progress {
-  margin-top: 0.1rem;
-}
-
-.year-text {
-  font-size: 1.2rem;
-}
-
-.title-text {
-  font-size: 1.2rem;
-}
-
-.title-sub-text {
-  font-size: 1rem;
-  margin: 0.5rem 2rem;
-  display: block;
+.wrapper {
+  padding: 0rem 1.3rem;
+  background-color: #fff;
+  .title {
+    display: inline-block;
+    padding: 0.5rem 0rem;
+    border-bottom: 2px #bfbfbf solid;
+  }
+  .content {
+    padding: 0.5rem 0.8rem;
+    .education-year {
+      font-size: 1.2rem;
+    }
+    .education-title{
+      font-size: 1.2rem;
+      display: block;
+      font-weight: bold;
+    }
+    .education-subtitle {
+      display: block;
+      font-size: 1rem;
+    }
+  }
 }
 </style>
