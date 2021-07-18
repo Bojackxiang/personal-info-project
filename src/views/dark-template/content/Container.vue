@@ -3,9 +3,10 @@
     <v-card-text>
       <!-- name component  -->
       <NameComponent />
-      <EducationComponentVue/>
-      <certification-component/>
-    
+      <EducationComponentVue />
+      <certification-component />
+      <experience-component />
+
       <content-section v-if="skills" id="to-timeline" title="Skills">
         <template slot="actions"> (% are relative not absolute) </template>
         <v-layout wrap>
@@ -38,12 +39,20 @@
 import ContentSection from "@/views/dark-template/content/Section";
 import NameComponentVue from "../../../components/NameComponent.vue";
 import Spacer from "../../../components/Utils/Spacer.vue";
-import EducationComponentVue from '../../../components/EducationComponent.vue';
-import CertificationComponent from '../../../components/CertificationComponent.vue';
+import EducationComponentVue from "../../../components/EducationComponent.vue";
+import CertificationComponent from "../../../components/CertificationComponent.vue";
+import ExperienceComponentVue from '../../../components/ExperienceComponent.vue';
 
 export default {
   name: "MainContent",
-  components: { ContentSection, NameComponentVue, Spacer, EducationComponentVue, CertificationComponent },
+  components: {
+    ContentSection,
+    NameComponentVue,
+    Spacer,
+    EducationComponentVue,
+    CertificationComponent,
+    ExperienceComponentVue
+  },
   data: () => ({
     prouds: [
       {

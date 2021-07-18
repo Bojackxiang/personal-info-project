@@ -47,6 +47,7 @@ export default {
 .wrapper {
   padding: 0rem 1.3rem;
   background-color: #fff;
+  margin-top: 1rem;
   .title {
     display: inline-block;
     padding: 0.5rem 0rem;

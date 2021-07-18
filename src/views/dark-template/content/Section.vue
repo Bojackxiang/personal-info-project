@@ -34,9 +34,6 @@ export default {
     title: { type: String, default: "" },
     spaceHeight: { type: String, default: "2rem" },
   },
-  created(){
-    console.log(this.spaceHeight)
-  },
   data(){
     return {
       space: this.spaceHeight
