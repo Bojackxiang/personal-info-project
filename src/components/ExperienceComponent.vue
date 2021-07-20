@@ -7,18 +7,27 @@
     </el-row>
 
     <el-row
-      :type="'flex'"
-      justify="'space-between'"
       class="content"
       v-for="experience in workExperiences"
       :key="experience.company"
     >
-      <el-col class="role">
-        <span class="role-title">{{experience.title}}</span>
-        <span class="role-company">{{experience.company}}</span>
+      <el-col class="role" :span="12">
+        <span class="role-title">{{ experience.title }}</span>
+        <span class="role-company"
+          ><i>{{ experience.company }}</i></span
+        >
       </el-col>
-      <el-col class="date">
-        <i>[{{experience.startDate}}] - [{{experience.endDate}}]</i>
+      <el-col class="date" :span="12">
+        <i>[{{ experience.startDate }}] - [{{ experience.endDate }}]</i>
+      </el-col>
+      <el-col :span="24" v-if="experience.duties.length > 0">
+        <span
+          v-for="(duty, index) in experience.duties"
+          :key="`${duty}-${index}`"
+          class="experience-duty"
+        >
+          <span class="dot">•</span> {{ duty }}
+        </span>
       </el-col>
     </el-row>
   </div>
@@ -33,16 +42,48 @@ export default {
         {
           company: "Q-83, Sydney, Australia",
           title: "Full stack Developer",
-          startDate: "2015-5",
-          endDate: "2016-1",
-          duties: [],
+          startDate: "2015-05",
+          endDate: "2016-01",
+          duties: [
+            "BUilding a Native App Kitly, and releasing on App Store and Google Store.",
+            "Delivering compatible UI on mobile, and implementing in-APP Purchase ",
+            "Delivering TypeScript and Functional components in React and Ract Native ",
+            "Working with RESTFUL and GraphQL based server-side rendering application ",
+            "Perforred testing through BDD and TDD by Enzyme by Jest, Enzyme ",
+            "Setting up projects on the through Docker, and deploy on Kubernetes on EKS",
+            "Implemented CI/CD by CodePipeline (AWS) and monitoring on CloudWatch.",
+            "Implemented Sub/Pub on RabbitMQ, SQS(AWS), and Lambda Trigger",
+          ],
         },
         {
-          company: "Company name",
-          title: "software engineer",
-          startDate: "2015-5",
-          endDate: "2016-1",
-          duties: [],
+          company: "RentBetter, Sydney, Australia",
+          title: "Software Engineer",
+          startDate: "2018-07",
+          endDate: "2019-01",
+          duties: [
+            "Built server-side rendering web application by using Nextjs and KOA",
+            "Implement Authentication thgouth OAuth and Social Media Platforms",
+            "Delivered mobile responsive UI and implemented unit tests (BDD and TDD).",
+            "Deployed react applications through CI/CD by using Jenkins and Docker",
+            "Established a real-time transaction monitoring dashboard with Angular",
+            "Collected real-time data and generated reports by web crawler and Flask ",
+            "Tracked teamwork by Jira and documented code on Confluence"
+          ],
+        },
+        {
+          company: "University of South Wales State",
+          title: "Full Stack Engineer (Contract)",
+          startDate: "2017-07",
+          endDate: "2018-06",
+          duties: [
+            "Built server-side rendering web application by using Nextjs and KOA",
+            "Implement Authentication thgouth OAuth and Social Media Platforms",
+            "Delivered mobile responsive UI and implemented unit tests (BDD and TDD).",
+            "Deployed react applications through CI/CD by using Jenkins and Docker",
+            "Established a real-time transaction monitoring dashboard with Angular",
+            "Collected real-time data and generated reports by web crawler and Flask ",
+            "Tracked teamwork by Jira and documented code on Confluence"
+          ],
         },
       ],
     };
@@ -70,12 +111,22 @@ export default {
       }
       .role-company {
         display: block;
+        font-weight: bold;
       }
     }
     .date {
       text-align: right;
       font-size: 1.2rem;
       font-weight: bold;
+    }
+    .experience-duty {
+      font-size: 1.1rem;
+      margin: 0.5rem 0rem;
+      display: block;
+      .dot {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
     }
   }
 }
