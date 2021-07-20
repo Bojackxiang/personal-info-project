@@ -2,56 +2,31 @@
   <v-card color="grey lighten-4" light>
     <v-card-text>
       <!-- name component  -->
-      <NameComponent />
-      <EducationComponentVue />
+      <name-component />
+      <education-component />
       <certification-component />
       <experience-component />
-
-      <content-section v-if="skills" id="to-timeline" title="Skills">
-        <template slot="actions"> (% are relative not absolute) </template>
-        <v-layout wrap>
-          <template v-for="(skill, i) in skills">
-            <v-flex v-if="skill.divider" :key="i" md12 xs12 mb-4 />
-            <v-flex v-else :key="i" md6 xs12>
-              <div class="mr-2 ml-2">
-                <div class="align-center">
-                  <v-icon small>
-                    {{ skill.icon }}
-                  </v-icon>
-                  {{ skill.title }}
-                </div>
-                <v-progress-linear
-                  class="progress"
-                  color="secondary"
-                  height="3"
-                  :value="skill.value"
-                />
-              </div>
-            </v-flex>
-          </template>
-        </v-layout>
-      </content-section>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
 import ContentSection from "@/views/dark-template/content/Section";
-import NameComponentVue from "../../../components/NameComponent.vue";
+import NameComponent from "../../../components/NameComponent.vue";
 import Spacer from "../../../components/Utils/Spacer.vue";
 import EducationComponentVue from "../../../components/EducationComponent.vue";
 import CertificationComponent from "../../../components/CertificationComponent.vue";
-import ExperienceComponentVue from '../../../components/ExperienceComponent.vue';
+import ExperienceComponentVue from "../../../components/ExperienceComponent.vue";
 
 export default {
   name: "MainContent",
   components: {
     ContentSection,
-    NameComponentVue,
+    NameComponent,
     Spacer,
     EducationComponentVue,
     CertificationComponent,
-    ExperienceComponentVue
+    ExperienceComponentVue,
   },
   data: () => ({
     prouds: [

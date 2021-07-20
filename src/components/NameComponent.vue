@@ -19,7 +19,7 @@
 import Spacer from './Utils/Spacer.vue'
 import ContentSection from '@/views/dark-template/content/Section'
 export default {
-  name      : 'NameComponent',
+  name: 'NameComponent',
   components: {
     Spacer,
     ContentSection,

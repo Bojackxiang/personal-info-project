@@ -16,12 +16,6 @@
                     <sidebar-container class="fill-height" />
                   </v-flex>
                 </v-layout>
-                <!-- <v-layout> -->
-                <!-- <v-flex md12> -->
-                <!-- <timeline-primary /> -->
-                <!-- <timeline-endless /> -->
-                <!-- </v-flex> -->
-                <!-- </v-layout> -->
               </v-flex>
             </div>
           </v-layout>
