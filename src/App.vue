@@ -6,13 +6,22 @@
 
 <script>
 import DarkTemplateContainer from './views/dark-template/Container.vue'
-
+import axios from 'axios'
 export default {
   name      : 'App',
   components: { DarkTemplateContainer },
   data () {
     return {}
   },
+  async mounted(){
+    try {
+    const response = await axios.get('http://localhost:3001/health-check')
+    console.log(response)  
+    } catch (error) {
+      
+    }
+    
+  }
 }
 </script>
 
