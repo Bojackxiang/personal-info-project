@@ -5,24 +5,28 @@
 </template>
 
 <script>
-import DarkTemplateContainer from './views/dark-template/Container.vue'
-import axios from 'axios'
+import config  from './config/config';
+import DarkTemplateContainer from "./views/dark-template/Container.vue";
+
+
 export default {
-  name      : 'App',
+  name: "App",
   components: { DarkTemplateContainer },
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  async mounted(){
-    try {
-    const response = await axios.get('http://localhost:3001/health-check')
-    console.log(response)  
-    } catch (error) {
+  async mounted() {
+  try {
+      const url = `/health-check`
+      console.log(url)
+      const response = await this.axios.get(url);
       
+      console.log(response);
+    } catch (error) {
+      console.log(error);
     }
-    
-  }
-}
+  },
+};
 </script>
 
 <style>

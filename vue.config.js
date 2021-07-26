@@ -15,16 +15,22 @@ module.exports = {
   // https://segmentfault.com/a/1190000023549881
   devServer: {
     port: 8080, // 端口
-    // proxy: {
-    //   '/dev/api': {
-    //     target: 'http://localhost:3001/api',
-    //     changOrigin: true,
-    //   },
-    //   '/prod/api': {
-    //     target: 'http://localhost:3001/api',
-    //     changOrigin: true,
-    //   }
-    // }
+    proxy: {
+      '/dev/api': {
+        target: 'http://localhost:3001/api',
+        changeOrigin: true, 
+        pathRewrite: {
+          '^/dev/api': '',
+        },
+      },
+      '/prod/api': {
+        target: 'http://localhost:3001/api',
+        changeOrigin: true, 
+        pathRewrite: {
+          '^/prod/api': '',
+        },
+      }
+    }
   }
 
 }

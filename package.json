@@ -13,6 +13,7 @@
     "element-ui": "^2.15.3",
     "leader-line": "^1.0.5",
     "vue": "^2.6.10",
+    "vue-axios": "^3.2.4",
     "vue-content-loading": "^1.6.0",
     "vuetify": "^1.5.5"
   },
