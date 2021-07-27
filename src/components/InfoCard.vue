@@ -27,7 +27,8 @@ export default {
   .title-wrapper {
     display: inline-block;
     border-bottom: 4px solid #e0e0e0;
-    padding: 0 2rem 0 0;
+    padding-bottom: 0.5rem;
+    min-width: 12rem;
     .title-name {
       font-size: 1.5rem;
       font-weight: bold;

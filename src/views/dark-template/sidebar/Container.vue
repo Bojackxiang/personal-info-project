@@ -12,6 +12,12 @@
         <span class="title-name"> A Full-Stack Developer </span>
       </div>
       <div>
+        <info-card :title="'Contact'">
+          <div class="contact-email">
+            <img class="email-logo" src="/img/email.svg" />
+            <span class="email">alex.developer@gmail.com</span>
+          </div>
+        </info-card>
         <info-card :title="`tech stack`">
           <!-- backend  -->
           <!-- Body  -->
@@ -121,6 +127,20 @@ export default {
   background: #2e2e2e;
 }
 .wrapper {
+  .contact-email{
+    display: flex;
+    align-items: center;
+    .email{
+      display: inline-block;
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+      margin-left: 0.5rem;
+    } 
+  }
+  .email-logo {
+    width: 2rem;
+    height: 2rem;
+  }
   .title-name {
     font-size: 1rem;
   }
