@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import config  from './config/config';
+// import config  from './config/config';
 import DarkTemplateContainer from "./views/dark-template/Container.vue";
 
 
@@ -19,9 +19,8 @@ export default {
   try {
       const url = `/health-check`
       console.log(url)
-      const response = await this.axios.get(url);
-      
-      console.log(response);
+      // const response = await this.axios.get(url);
+      // console.log(response);
     } catch (error) {
       console.log(error);
     }

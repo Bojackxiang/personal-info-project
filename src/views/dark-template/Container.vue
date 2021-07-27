@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import SidebarContainer from "@/views/dark-template/sidebar/Container";
+import SidebarContainer from "../../views/dark-template/sidebar/Container.vue";
 import ContentContainer from './content/Container.vue';
 import TimelinePrimary from "@/views/dark-template/timeline/Primary";
 import TimelineEndless from "@/views/dark-template/timeline/Endless";
