@@ -5,15 +5,16 @@
       <div class="text-sm-center mb-4 mt-3">
         <h1>
           <span class="light-blue--text text--lighten-3">
-            {{ sections.info.name.firstName }}
-            {{ sections.info.name.lastName }}
+            {{ name.firstName }}
+            {{ name.lastName }}
           </span>
         </h1>
         <span class="title-name"> A Full-Stack Developer </span>
       </div>
-
       <div>
         <info-card :title="`tech stack`">
+          <!-- backend  -->
+          <!-- Body  -->
           <div class="tech-stack-title">
             <span>Backend </span>
           </div>
@@ -22,12 +23,14 @@
               class="tech-stack-btn"
               type="info"
               round
-              v-for="(tech, index) in sections.info.backend"
+              v-for="(tech, index) in backend"
               :key="`${tech}-${index}`"
             >
               {{ tech }}
             </el-button>
           </div>
+          <!-- front end  -->
+          <!-- Body  -->
           <div class="tech-stack-title">
             <span>Frontend </span>
           </div>
@@ -36,12 +39,14 @@
               class="tech-stack-btn"
               type="info"
               round
-              v-for="(tech, index) in sections.info.frontend"
+              v-for="(tech, index) in frontend"
               :key="`${tech}-${index}`"
             >
               {{ tech }}
             </el-button>
           </div>
+          <!-- devlops  -->
+          <!-- Body  -->
           <div class="tech-stack-title">
             <span>DevOps </span>
           </div>
@@ -50,7 +55,7 @@
               class="tech-stack-btn"
               type="info"
               round
-              v-for="(tech, index) in sections.info.devops"
+              v-for="(tech, index) in devops"
               :key="`${tech}-${index}`"
             >
               {{ tech }}
@@ -71,45 +76,41 @@ export default {
   components: { SidebarSection, Avatar },
   data() {
     return {
-      sections: {
-        info: {
-          name: {
-            firstName: "Alex",
-            lastName: "Xiang",
-          },
-          backend: [
-            "Nodejs",
-            "GraphQL Server",
-            "Express",
-            "Jest",
-            "TDD",
-            "BDD",
-            "Javascript",
-            "Typescript",
-          ],
-          frontend: [
-            "React",
-            "Redux",
-            "React Router",
-            "Webpack",
-            "CSS Modules",
-            "SASS",
-            "ESLint",
-            "Vue",
-            "Vuex",
-            "Vue-Router",
-            "Vuex-Router-sync",
-          ],
-          devops: [
-            "Google Cloud Platform (GCP)",
-            "Amazon Web Service (AWS)",
-            "Docker",
-            "Kubernetes",
-            "Jenkins",
-            "TreavisCI",
-          ],
-        },
+      name: {
+        firstName: "Alex",
+        lastName: "Xiang",
       },
+      backend: [
+        "Nodejs",
+        "GraphQL Server",
+        "Express",
+        "Jest",
+        "TDD",
+        "BDD",
+        "Javascript",
+        "Typescript",
+      ],
+      frontend: [
+        "React",
+        "Redux",
+        "React Router",
+        "Webpack",
+        "CSS Modules",
+        "SASS",
+        "ESLint",
+        "Vue",
+        "Vuex",
+        "Vue-Router",
+        "Vuex-Router-sync",
+      ],
+      devops: [
+        "Google Cloud Platform (GCP)",
+        "Amazon Web Service (AWS)",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "TreavisCI",
+      ],
     };
   },
 };
