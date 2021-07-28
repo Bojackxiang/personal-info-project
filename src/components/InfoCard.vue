@@ -4,7 +4,7 @@
       <span class="title-name">{{ title | uppercase() }}</span>
     </div>
     <div class="card-body">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -25,16 +25,15 @@ export default {
 <style lang="scss" scoped>
 .card-wrapper {
   .title-wrapper {
-    display: inline-block;
-    border-bottom: 4px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
     padding-bottom: 0.5rem;
-    min-width: 12rem;
+
     .title-name {
       font-size: 1.5rem;
       font-weight: bold;
     }
   }
-  .card-body{
+  .card-body {
     padding: 1rem 0;
   }
 }

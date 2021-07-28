@@ -59,7 +59,7 @@ export default {
 #dark-template {
   height: 100%;
 ;
-  background: url("/img/background.jpeg");
+  background: url("/img/background.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
