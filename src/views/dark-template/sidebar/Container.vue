@@ -15,7 +15,15 @@
         <info-card :title="'Contact'">
           <div class="contact-email">
             <img class="email-logo" src="/img/email.svg" />
-            <span class="email">alex.developer@gmail.com</span>
+            <a class="email" :href="'mailto:alex.developer@gmail.com'"
+              >alex.developer@gmail.com</a
+            >
+          </div>
+          <div class="contact-email">
+            <img class="phone-logo" src="/img/phone.svg" />
+            <a class="email" :href="'mailto:alex.developer@gmail.com'"
+              >0424310042</a
+            >
           </div>
         </info-card>
         <info-card :title="`tech stack`">
@@ -127,19 +135,26 @@ export default {
   background: #2e2e2e;
 }
 .wrapper {
-  .contact-email{
+  .contact-email {
     display: flex;
     align-items: center;
-    .email{
+    .email {
       display: inline-block;
       font-size: 1.1rem;
       margin-top: 0.2rem;
       margin-left: 0.5rem;
-    } 
+      color: white;
+      text-decoration: none;;
+    }
   }
   .email-logo {
     width: 2rem;
     height: 2rem;
+  }
+  .phone-logo {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 1rem 0.3rem;
   }
   .title-name {
     font-size: 1rem;
