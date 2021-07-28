@@ -27,7 +27,7 @@
 
 <script>
 import SidebarContainer from "../../views/dark-template/sidebar/Container.vue";
-import ContentContainer from './content/Container.vue';
+import ContentContainer from "./content/Container.vue";
 import TimelinePrimary from "@/views/dark-template/timeline/Primary";
 import TimelineEndless from "@/views/dark-template/timeline/Endless";
 // import LeaderLine from 'leader-line'
@@ -58,14 +58,12 @@ export default {
 <style scoped>
 #dark-template {
   height: 100%;
-;
   background: url("/img/background.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  
 }
-.page-container{
-  max-width: 900px;;
+.page-container {
+  max-width: 900px;
 }
 </style>
