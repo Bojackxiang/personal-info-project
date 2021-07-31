@@ -12,8 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 
 axios.defaults.baseURL = configs.baseUrl
-console.log('configs.baseUrl: ', configs.baseUrl);
-console.log(configs.baseUrl)
+
 axios.defaults.timeout = 8000;
 axios.interceptors.response.use(function (response) {
   return response.data
