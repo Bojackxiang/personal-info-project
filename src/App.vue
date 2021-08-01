@@ -1,19 +1,23 @@
 <template>
   <v-app>
     <dark-template-container />
+    <message-box/>
   </v-app>
 </template>
 
 <script>
+import MessageBox from './components/MessageBox.vue';
 // import config  from './config/config';
 import DarkTemplateContainer from "./views/dark-template/Container.vue";
 
 
 export default {
   name: "App",
-  components: { DarkTemplateContainer },
+  components: { DarkTemplateContainer, MessageBox },
   data() {
-    return {};
+      return {
+
+      }
   },
   async mounted() {
   try {
@@ -30,6 +34,7 @@ export default {
 
 <style>
 body {
+  position: relative;
   padding: 0;
   margin: 0;
   font-size: 10px;
