@@ -76,24 +76,19 @@
             </el-button>
           </div>
         </info-card>
-        <info-card :title="'Message'">
-          <div class="message-box">
-            <mesasge-box />
-          </div>
-        </info-card>
+        
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-import MesasgeBox from "../../../components/MesasgeBox.vue";
 import Avatar from "../../../views/dark-template/sidebar/Avatar";
 import SidebarSection from "../../../views/dark-template/sidebar/Section";
 
 export default {
   name: "Sidebar",
-  components: { SidebarSection, Avatar, MesasgeBox },
+  components: { SidebarSection, Avatar,},
   data() {
     return {
       name: {
