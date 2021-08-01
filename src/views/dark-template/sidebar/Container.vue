@@ -1,22 +1,22 @@
 <template>
   <v-card color="grey darken-3 wrapper" dark>
     <v-card-text>
-      <avatar />
-      <div class="text-sm-center mb-4 mt-3">
-        <h1>
-          <span class="light-blue--text text--lighten-3">
+      <div class="avater-wrapper mt-5">
+        <avatar />
+        <div class="mb-4 mt-3">
+          <span class="light-blue--text text--lighten-3 avatar-name">
             {{ name.firstName }}
             {{ name.lastName }}
           </span>
-        </h1>
-        <span class="title-name"> A Full-Stack Developer </span>
-      </div>
+          <span class="title-name"> A Full-Stack Developer </span>
+        </div>
+      </div>     
       <div>
         <info-card :title="'Contact'">
           <div class="contact-email">
             <img class="email-logo" src="/img/email.svg" />
             <a class="email" :href="'mailto:alex.developer@gmail.com'"
-              >alex.developer@gmail.com</a
+              >alex.developer1004@gmail.com</a
             >
           </div>
           <div class="contact-email">
@@ -78,20 +78,18 @@
         </info-card>
         <info-card :title="'Message'">
           <div class="message-box">
-            <mesasge-box/>
+            <mesasge-box />
           </div>
         </info-card>
-        
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-import MesasgeBox from '../../../components/MesasgeBox.vue';
+import MesasgeBox from "../../../components/MesasgeBox.vue";
 import Avatar from "../../../views/dark-template/sidebar/Avatar";
 import SidebarSection from "../../../views/dark-template/sidebar/Section";
-
 
 export default {
   name: "Sidebar",
@@ -143,6 +141,18 @@ export default {
   background: #2e2e2e;
 }
 .wrapper {
+  .avater-wrapper {
+    text-align: center;
+  } 
+  .avater-wrapper{
+    font-size: 1.8rem;
+    font-weight: bold;;
+    display: block;
+  }
+  .title-name{
+    display: block;
+    font-size: 1.8rem;
+  }
   .contact-email {
     display: flex;
     align-items: center;
@@ -152,9 +162,10 @@ export default {
       margin-top: 0.2rem;
       margin-left: 0.5rem;
       color: white;
-      text-decoration: none;;
+      text-decoration: none;
     }
   }
+
   .email-logo {
     width: 2rem;
     height: 2rem;
@@ -180,9 +191,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     padding: 0.5rem 0;
-  }
-  .message-box{
-
   }
 }
 </style>
