@@ -21,14 +21,19 @@
             <el-input type="textarea" v-model="messageForm.message"></el-input>
           </el-form-item>
         </el-form>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="messageCancel">Cancel</el-button>
-          <el-button
-            type="primary"
-            @click="messageSubmit"
+
+        <div slot="footer" class="dialog-footer">
+          <v-progress-linear
+            v-if="submitting"
+            :indeterminate="true"
+          ></v-progress-linear>
+          <el-button @click="messageCancel" v-if="!submitting"
+            >Cancel</el-button
+          >
+          <el-button type="primary" @click="messageSubmit" v-if="!submitting"
             >Submit</el-button
           >
-        </span>
+        </div>
       </el-dialog>
     </div>
     <div class="message-btn-wrapper">
@@ -50,13 +55,14 @@
 export default {
   data() {
     return {
+      submitting: false,
       dialogDisplay: false,
       dialogWidth: "800px",
       messageForm: {
-        name: "",
-        phone: "",
-        email: "",
-        message: "",
+        name: "test",
+        phone: "test",
+        email: "test",
+        message: "test",
       },
       messageFormRules: {
         name: [
@@ -89,8 +95,27 @@ export default {
     },
     // 提交 message
     async messageSubmit() {
-      this.resetForm();
-      this.messageClick();
+      try {
+        this.submitting = true;
+        setTimeout(async () => {
+          const { success, message } = await this.axios.post(
+            "/create-message",
+            this.messageForm
+          );
+
+          if (!success) {
+            // TODO: SHOULD TAKE CARE OF THE ERROR MESSAGE
+            // this.submitting = false;
+            return;
+          }
+          // Success handler
+          this.resetForm();
+          this.messageClick();
+          this.submitting = false;
+        }, 2000);
+      } catch (error) {
+        console.log("error");
+      }
     },
     // 点击取消message
     messageCancel() {
@@ -135,6 +160,16 @@ export default {
   }
   .message-box-btn:focused {
     background-color: whote;
+  }
+  .loading-wrapper {
+    height: 100px;
+    background-color: pink;
+  }
+  .alert-wrapper{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
   }
 }
 </style>

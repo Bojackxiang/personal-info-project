@@ -23,8 +23,8 @@ export default {
   try {
       const url = `/health-check`
       console.log(url)
-      // const response = await this.axios.get(url);
-      // console.log(response);
+      const response = await this.axios.get(url);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
