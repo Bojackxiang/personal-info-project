@@ -59,10 +59,10 @@ export default {
       dialogDisplay: false,
       dialogWidth: "800px",
       messageForm: {
-        name: "test",
-        phone: "test",
-        email: "test",
-        message: "test",
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
       },
       messageFormRules: {
         name: [
@@ -98,26 +98,27 @@ export default {
       try {
         this.submitting = true;
         setTimeout(async () => {
-          try {
-            const { success, message } = await this.axios.post(
-              "/create-message",
-              this.messageForm
-            );
+          const { success, message } = await this.axios.post(
+            "/create-message",
+            this.messageForm
+          );
 
-            if (!success) {
-              console.debug(message);
-              this.$message.error(
-                "Something was wrong.. Please try again later"
-              );
-              this.submitting = false;
-              return;
-            }
-            this.resetForm();
-            this.messageClick();
+          console.log({
+            success, 
+            message
+          })
+
+          if (!success) {
+            console.log(message)
+            // 如果有报错，展示错误信息，但是不会关闭窗口
+            console.debug(message);
+            this.$message.error(message);
             this.submitting = false;
-          } catch (error) {
-            throw new Error(errr);
+            return;
           }
+          this.resetForm();
+          this.messageClick();
+          this.submitting = false;
         }, 2000);
       } catch (error) {
         console.debug(error);
