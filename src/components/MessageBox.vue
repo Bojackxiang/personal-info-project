@@ -98,23 +98,30 @@ export default {
       try {
         this.submitting = true;
         setTimeout(async () => {
-          const { success, message } = await this.axios.post(
-            "/create-message",
-            this.messageForm
-          );
+          try {
+            const { success, message } = await this.axios.post(
+              "/create-message",
+              this.messageForm
+            );
 
-          if (!success) {
-            // TODO: SHOULD TAKE CARE OF THE ERROR MESSAGE
-            // this.submitting = false;
-            return;
+            if (!success) {
+              console.debug(message);
+              this.$message.error(
+                "Something was wrong.. Please try again later"
+              );
+              this.submitting = false;
+              return;
+            }
+            this.resetForm();
+            this.messageClick();
+            this.submitting = false;
+          } catch (error) {
+            throw new Error(errr);
           }
-          // Success handler
-          this.resetForm();
-          this.messageClick();
-          this.submitting = false;
         }, 2000);
       } catch (error) {
-        console.log("error");
+        console.debug(error);
+        this.$message.error("Something was wrong.. Please try again later");
       }
     },
     // 点击取消message
@@ -165,9 +172,9 @@ export default {
     height: 100px;
     background-color: pink;
   }
-  .alert-wrapper{
+  .alert-wrapper {
     position: absolute;
-    top: 0; 
+    top: 0;
     left: 0;
     right: 0;
   }
