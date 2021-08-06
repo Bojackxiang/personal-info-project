@@ -6,8 +6,13 @@
         :visible.sync="dialogDisplay"
         :width="dialogWidth"
         label-width="100px"
+        ref="messageForm"
       >
-        <el-form :model="messageForm" :rules="messageFormRules">
+        <el-form
+          :model="messageForm"
+          :rules="messageFormRules"
+          ref="messageForm"
+        >
           <el-form-item label="Your name" prop="name">
             <el-input v-model="messageForm.name"></el-input>
           </el-form-item>
@@ -68,6 +73,13 @@ export default {
         name: [
           { required: true, message: "Your name is require", trigger: "blur" },
         ],
+        phone: [
+          {
+            required: true,
+            message: "Phone number is required",
+            trigger: "blur",
+          },
+        ],
         message: [
           {
             required: true,
@@ -89,6 +101,17 @@ export default {
     };
   },
   methods: {
+    // form validation
+    formValidation(formName) {
+      let validationResult = true;
+      this.$refs[formName].validate((valid) => {
+        if (!valid) {
+          validationResult = false;
+          return false;
+        }
+      });
+      return validationResult;
+    },
     // 点击了message box
     messageClick() {
       this.dialogDisplay = !this.dialogDisplay;
@@ -96,6 +119,11 @@ export default {
     // 提交 message
     async messageSubmit() {
       try {
+        const formValidation = await this.formValidation("messageForm");
+        if (!formValidation) {
+          throw new Error("Invalid form content");
+        }
+
         this.submitting = true;
         setTimeout(async () => {
           const { success, message } = await this.axios.post(
@@ -103,13 +131,8 @@ export default {
             this.messageForm
           );
 
-          console.log({
-            success, 
-            message
-          })
-
           if (!success) {
-            console.log(message)
+            console.log(message);
             // 如果有报错，展示错误信息，但是不会关闭窗口
             console.debug(message);
             this.$message.error(message);
@@ -119,10 +142,11 @@ export default {
           this.resetForm();
           this.messageClick();
           this.submitting = false;
+          this.$message.success("Message has been send successfully! ");
         }, 2000);
       } catch (error) {
         console.debug(error);
-        this.$message.error("Something was wrong.. Please try again later");
+        this.$message.error(error.message);
       }
     },
     // 点击取消message
