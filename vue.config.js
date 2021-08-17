@@ -15,15 +15,22 @@ module.exports = {
   devServer: {
     port: 8080, // 端口
     proxy: {
-      '/dev/api': {
+      '/local/api': {
         target: 'http://localhost:3001/api',
         changeOrigin: true, 
         pathRewrite: {
-          '^/dev/api': '',
+          '^/local/api': '',
+        },
+      },
+      '/staging/api': {
+        target: 'http://localhost:3001/api',
+        changeOrigin: true, 
+        pathRewrite: {
+          '^/staging/api': '',
         },
       },
       '/prod/api': {
-        target: 'http://localhost:3001/api',
+        target: 'http://143.110.189.226/restful',
         changeOrigin: true, 
         pathRewrite: {
           '^/prod/api': '',

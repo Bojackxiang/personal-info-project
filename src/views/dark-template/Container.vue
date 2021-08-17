@@ -58,10 +58,11 @@ export default {
 <style scoped>
 #dark-template {
   height: 100%;
-  background: url("/img/background.png");
+  /* background: url("/img/background.png");
   background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
+  background-size: cover; */
+background-image: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
 }
 .page-container {
   max-width: 900px;

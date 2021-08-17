@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prod": "rm -rf ./dist/ && yarn run build && docker build -t batmandocode/resume . && docker push batmandocode/resume"
   },
   "dependencies": {
     "axios": "^0.21.1",
