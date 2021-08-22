@@ -42,8 +42,8 @@ export default {
         {
           company: "Q-83, Sydney, Australia",
           title: "Full stack Developer",
-          startDate: "2015-05",
-          endDate: "2016-01",
+          startDate: "2019-01",
+          endDate: "2021-06",
           duties: [
             "BUilding a Native App Kitly, and releasing on App Store and Google Store.",
             "Delivering compatible UI on mobile, and implementing in-APP Purchase ",
