@@ -30,7 +30,7 @@ module.exports = {
         },
       },
       '/prod/api': {
-        target: 'http://143.110.189.226/restful',
+        target: 'http://143.110.189.226/restful/api',
         changeOrigin: true, 
         pathRewrite: {
           '^/prod/api': '',
