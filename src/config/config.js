@@ -1,8 +1,8 @@
 const DEVELOPMENT_MODE = 'prod' // prod | staging | local
 
-const devBaseUrl = '/local/api/'
-const stagingBaseUrl = '/dev/api/'
-const prodBaseUrl = '/prod/api'
+const devBaseUrl = 'http://localhost:3001/api'
+const stagingBaseUrl = 'http://localhost:3001/api'
+const prodBaseUrl = 'http://143.110.189.226/restful/api'
 
 let baseUrl = ''
 switch (DEVELOPMENT_MODE) {
