@@ -126,10 +126,16 @@ export default {
 
         this.submitting = true;
         setTimeout(async () => {
-          const { success, message } = await this.axios.post(
+          const {success, data, message} = await this.axios.post(
             "/create-message",
-            this.messageForm
+            this.messageForm,
+            {
+              headers: {
+                secret: 'secret'
+              }
+            }
           );
+
 
           if (!success) {
             console.log(message);
